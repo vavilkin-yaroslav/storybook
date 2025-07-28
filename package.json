@@ -21,6 +21,7 @@
     "playwright": "^1.54.0",
     "prop-types": "^15.8.1",
     "storybook": "^9.0.16",
+    "typescript": "^5.8.3",
     "vitest": "^3.2.4"
   },
   "dependencies": {
