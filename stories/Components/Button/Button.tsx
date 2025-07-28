@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
 
 interface IButtonProps extends Omit<MuiButtonProps, 'variant' | 'color'> {
-  primary?: boolean;
   backgroundColor?: string;
   label: string;
   variant?: 'contained' | 'outlined' | 'text';
@@ -11,23 +10,19 @@ interface IButtonProps extends Omit<MuiButtonProps, 'variant' | 'color'> {
 }
 
 export const Button = ({
-  primary = false,
   backgroundColor = '',
   size = 'medium',
   label,
   disabled = false,
   fullWidth = false,
-  variant = 'contained',
+  variant,
   color = 'primary',
   ...props
 }: IButtonProps) => {
-  const variantToUse = primary ? 'contained' : variant;
-  const colorToUse = primary ? 'primary' : color;
-
   return (
     <MuiButton
-      variant={variantToUse}
-      color={colorToUse}
+      variant={variant}
+      color={color}
       size={size}
       disabled={disabled}
       fullWidth={fullWidth}
@@ -40,9 +35,6 @@ export const Button = ({
 };
 
 Button.propTypes = {
-  /** Основной призыв к действию на странице */
-  primary: PropTypes.bool,
-
   /** Кастомный цвет фона (переопределяет стандартный) */
   backgroundColor: PropTypes.string,
 
@@ -69,7 +61,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  primary: false,
   size: 'medium',
   disabled: false,
   fullWidth: false,

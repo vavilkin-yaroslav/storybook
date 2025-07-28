@@ -75,7 +75,7 @@ export const FullWidth: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '300px' }}>
+      <div style={{ width: '100%' }}>
         <Story />
       </div>
     ),

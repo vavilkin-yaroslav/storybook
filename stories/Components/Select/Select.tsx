@@ -10,28 +10,17 @@ import {
 } from '@mui/material';
 
 interface ISelectProps {
-  /** Значение выбранного элемента */
   value?: string | number;
-  /** Варианты для выбора */
   options: Array<{ value: string | number; label: string }>;
-  /** Текст подсказки */
   label?: string;
-  /** Вариант стиля */
   variant?: 'outlined' | 'filled' | 'standard';
-  /** Размер */
   size?: 'small' | 'medium';
-  /** Ширина на всю родительскую ширину */
   fullWidth?: boolean;
-  /** Ошибка валидации */
   error?: boolean;
-  /** Сообщение об ошибке */
   helperText?: string;
-  /** Отключенное состояние */
   disabled?: boolean;
-  /** Дополнительный класс */
   className?: string;
-  /** Обработчик изменения значения */
-  onChange?: (event: any) => void;
+  onChange?: (event: unknown) => void;
 }
 
 export const Select = ({

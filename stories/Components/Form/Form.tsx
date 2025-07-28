@@ -36,6 +36,7 @@ export const Form = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
+    console.log(name);
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
@@ -81,7 +82,7 @@ export const Form = () => {
         sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}
       >
         <Input
-          // name="name"
+          name="name"
           placeholder="Ваше имя"
           value={formData.name}
           onChange={handleChange}
@@ -91,7 +92,7 @@ export const Form = () => {
         />
 
         <Input
-          // name="email"
+          name="email"
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}

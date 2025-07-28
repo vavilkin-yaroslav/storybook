@@ -3,29 +3,18 @@ import PropTypes from 'prop-types';
 import { TextField as MuiTextField } from '@mui/material';
 
 interface IInputProps {
-  /** Текст подсказки (placeholder) */
+  name?: string;
   placeholder?: string;
-  /** Значение поля */
   value?: string;
-  /** Вариант стиля */
   variant?: 'outlined' | 'filled' | 'standard';
-  /** Цветовая схема */
   color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
-  /** Размер */
   size?: 'small' | 'medium';
-  /** Ширина на всю родительскую ширину */
   fullWidth?: boolean;
-  /** Текст ошибки */
   error?: boolean;
-  /** Сообщение об ошибке */
   helperText?: string;
-  /** Отключенное состояние */
   disabled?: boolean;
-  /** Тип поля */
   type?: string;
-  /** Дополнительный класс */
   className?: string;
-  /** Обработчик изменения значения */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

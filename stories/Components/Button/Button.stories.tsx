@@ -17,14 +17,6 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-// Базовая кнопка
-export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Основная кнопка',
-  },
-};
-
 // Вторичная кнопка
 export const Secondary: Story = {
   args: {
