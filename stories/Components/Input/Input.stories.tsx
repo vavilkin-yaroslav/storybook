@@ -10,12 +10,6 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'error', 'warning', 'info', 'success'],
-    },
-  },
 } satisfies Meta<typeof Input>;
 
 export const Basic: StoryObj<typeof Input> = {

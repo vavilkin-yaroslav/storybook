@@ -4,7 +4,7 @@ import { TextField as MuiTextField, BaseTextFieldProps as MuiTextFieldProps } fr
 
 interface IInputProps extends MuiTextFieldProps {
   name?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Input = ({
