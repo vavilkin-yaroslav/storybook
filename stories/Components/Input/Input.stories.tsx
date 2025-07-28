@@ -3,7 +3,7 @@ import { Input } from './Input';
 import { StoryObj, Meta } from '@storybook/react';
 import { Stack } from '@mui/material';
 
-const meta: Meta<typeof Input> = {
+export default {
   title: 'Components/Input',
   component: Input,
   tags: ['autodocs'],
@@ -15,20 +15,16 @@ const meta: Meta<typeof Input> = {
       control: 'select',
       options: ['primary', 'secondary', 'error', 'warning', 'info', 'success'],
     },
-    onChange: { action: 'changed' },
   },
-};
-export default meta;
+} satisfies Meta<typeof Input>;
 
-type Story = StoryObj<typeof Input>;
-
-export const Basic: Story = {
+export const Basic: StoryObj<typeof Input> = {
   args: {
     placeholder: 'Введите текст',
   },
 };
 
-export const Variants: Story = {
+export const Variants: StoryObj<typeof Input> = {
   render: () => (
     <Stack spacing={2}>
       <Input placeholder="Outlined (по умолчанию)" variant="outlined" />
@@ -38,7 +34,7 @@ export const Variants: Story = {
   ),
 };
 
-export const Colors: Story = {
+export const Colors: StoryObj<typeof Input> = {
   render: () => (
     <Stack spacing={2}>
       <Input placeholder="Primary" color="primary" />
@@ -51,7 +47,7 @@ export const Colors: Story = {
   ),
 };
 
-export const Sizes: Story = {
+export const Sizes: StoryObj<typeof Input> = {
   render: () => (
     <Stack spacing={2}>
       <Input placeholder="Small" size="small" />
@@ -60,7 +56,7 @@ export const Sizes: Story = {
   ),
 };
 
-export const WithError: Story = {
+export const WithError: StoryObj<typeof Input> = {
   args: {
     placeholder: 'Ошибочное поле',
     error: true,
@@ -68,14 +64,14 @@ export const WithError: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Disabled: StoryObj<typeof Input> = {
   args: {
     placeholder: 'Отключенное поле',
     disabled: true,
   },
 };
 
-export const FullWidth: Story = {
+export const FullWidth: StoryObj<typeof Input> = {
   args: {
     placeholder: 'Поле на всю ширину',
     fullWidth: true,

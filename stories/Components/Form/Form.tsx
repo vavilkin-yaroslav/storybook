@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-import { Box, Typography, Paper } from '@mui/material';
+import { Box, Typography, Paper, SelectChangeEvent } from '@mui/material';
 
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import { Checkbox } from '../Checkbox/Checkbox';
+import { COUNTRY_OPTIONS } from '../../mocks/Form';
 
-interface FormData {
-  name: string;
-  email: string;
-  country: string;
-  agreeTerms: boolean;
-}
+import { IFormData, TSelectEvent } from './interfaces';
 
 export const Form = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<IFormData>({
     name: '',
     email: '',
     country: '',
@@ -27,23 +23,16 @@ export const Form = () => {
     country: false,
   });
 
-  const countryOptions = [
-    { value: 'ru', label: 'Россия' },
-    { value: 'us', label: 'США' },
-    { value: 'eu', label: 'Европа' },
-    { value: 'cn', label: 'Китай' },
-  ];
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    console.log(name);
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
   };
 
-  const handleSelectChange = (value: string) => {
+  const handleSelectChange = (e: TSelectEvent) => {
+    const { value } = e.target;
     setFormData(prev => ({
       ...prev,
       country: value
@@ -63,10 +52,9 @@ export const Form = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Форма отправлена:', formData);
       alert('Форма успешно отправлена!');
     } else {
-      console.log('Ошибки валидации');
+      alert('Ошибки валидации!');
     }
   };
 
@@ -75,7 +63,6 @@ export const Form = () => {
       <Typography variant="h5" component="h2" gutterBottom>
         Регистрационная форма
       </Typography>
-
       <Box
         component="form"
         onSubmit={handleSubmit}
@@ -90,7 +77,6 @@ export const Form = () => {
           helperText={errors.name ? "Поле обязательно для заполнения" : ""}
           fullWidth
         />
-
         <Input
           name="email"
           placeholder="Email"
@@ -100,9 +86,8 @@ export const Form = () => {
           helperText={errors.email ? "Введите корректный email" : ""}
           fullWidth
         />
-
         <Select
-          options={countryOptions}
+          options={COUNTRY_OPTIONS}
           value={formData.country}
           onChange={handleSelectChange}
           label="Страна"
@@ -110,17 +95,16 @@ export const Form = () => {
           helperText={errors.country ? "Выберите страну" : ""}
           fullWidth
         />
-
         <Checkbox
           name="agreeTerms"
           label="Я согласен с условиями использования"
           checked={formData.agreeTerms}
           onChange={handleChange}
+          required
         />
-
         <Button
           type="submit"
-          label="Отправить"
+          text="Отправить"
           variant="contained"
           fullWidth
           size="large"

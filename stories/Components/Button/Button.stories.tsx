@@ -1,67 +1,63 @@
 import React from 'react';
-import { Button } from './Button';
 import { StoryObj, Meta } from '@storybook/react';
 
-const meta: Meta<typeof Button> = {
+import { Button } from './Button';
+
+export default {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    backgroundColor: { control: 'color' },
+} satisfies Meta<typeof Button>;
+
+export const Primary: StoryObj<typeof Button> = {
+  args: {
+    text: 'Кнопка',
+    variant: 'contained',
   },
 };
-export default meta;
 
-type Story = StoryObj<typeof Button>;
-
-// Вторичная кнопка
-export const Secondary: Story = {
+export const Secondary: StoryObj<typeof Button> = {
   args: {
-    label: 'Вторичная кнопка',
+    text: 'Вторичная кнопка',
     variant: 'outlined',
   },
 };
 
-// Большая кнопка
-export const Large: Story = {
+export const Large: StoryObj<typeof Button> = {
   args: {
     size: 'large',
-    label: 'Большая кнопка',
+    text: 'Большая кнопка',
   },
 };
 
-// Маленькая кнопка
-export const Small: Story = {
+export const Small: StoryObj<typeof Button> = {
   args: {
     size: 'small',
-    label: 'Маленькая кнопка',
+    text: 'Маленькая кнопка',
   },
 };
 
-// Отключенная кнопка
-export const Disabled: Story = {
+export const Disabled: StoryObj<typeof Button> = {
   args: {
     disabled: true,
-    label: 'Отключенная кнопка',
+    text: 'Отключенная кнопка',
   },
 };
 
-// Кнопка с кастомным цветом
-export const CustomColor: Story = {
+export const CustomColor: StoryObj<typeof Button> = {
   args: {
     backgroundColor: '#ff00ff',
-    label: 'Кастомный цвет',
+    text: 'Кастомный цвет',
   },
 };
 
-// Кнопка на всю ширину
-export const FullWidth: Story = {
+export const FullWidth: StoryObj<typeof Button> = {
   args: {
     fullWidth: true,
-    label: 'Кнопка на всю ширину',
+    text: 'Кнопка на всю ширину',
   },
   parameters: {
     layout: 'padded',

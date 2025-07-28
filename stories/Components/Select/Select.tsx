@@ -1,39 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Select as MuiSelect,
   MenuItem,
   FormControl,
   InputLabel,
-  SelectProps as MuiSelectProps,
   FormHelperText,
+  Select as MuiSelect,
+  BaseSelectProps as MuiBaseSelectProps,
 } from '@mui/material';
 
-interface ISelectProps {
-  value?: string | number;
+interface ISelectProps extends MuiBaseSelectProps {
   options: Array<{ value: string | number; label: string }>;
-  label?: string;
-  variant?: 'outlined' | 'filled' | 'standard';
-  size?: 'small' | 'medium';
-  fullWidth?: boolean;
-  error?: boolean;
   helperText?: string;
-  disabled?: boolean;
-  className?: string;
-  onChange?: (event: unknown) => void;
 }
 
 export const Select = ({
-  value = '',
-  options = [],
-  label = '',
-  variant = 'outlined',
-  size = 'medium',
-  fullWidth = false,
-  error = false,
-  helperText = '',
-  disabled = false,
-  className = '',
+  value,
+  options,
+  label,
+  variant,
+  size,
+  fullWidth,
+  error,
+  helperText,
+  disabled,
+  className,
   onChange,
   ...props
 }: ISelectProps) => {
@@ -103,16 +94,4 @@ Select.propTypes = {
 
   /** Обработчик изменения значения */
   onChange: PropTypes.func,
-};
-
-Select.defaultProps = {
-  value: '',
-  label: '',
-  variant: 'outlined',
-  size: 'medium',
-  fullWidth: false,
-  error: false,
-  helperText: '',
-  disabled: false,
-  className: '',
 };

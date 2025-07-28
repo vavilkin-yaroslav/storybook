@@ -2,8 +2,9 @@ import React from 'react';
 import { Select } from './Select';
 import { StoryObj, Meta } from '@storybook/react';
 import { Stack } from '@mui/material';
+import { OPTIONS } from '../../mocks/Select';
 
-const meta: Meta<typeof Select> = {
+export default {
   title: 'Components/Select',
   component: Select,
   tags: ['autodocs'],
@@ -13,63 +14,56 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     onChange: { action: 'changed' },
   },
-};
-export default meta;
+} satisfies Meta<typeof Select>;
 
-type Story = StoryObj<typeof Select>;
 
-const options = [
-  { value: 'option1', label: 'Вариант 1' },
-  { value: 'option2', label: 'Вариант 2' },
-  { value: 'option3', label: 'Вариант 3' },
-];
 
-export const Basic: Story = {
+export const Basic: StoryObj<typeof Select> = {
   args: {
-    options,
+    options: OPTIONS,
     label: 'Выберите вариант',
   },
 };
 
-export const Variants: Story = {
+export const Variants: StoryObj<typeof Select> = {
   render: () => (
     <Stack spacing={2}>
-      <Select options={options} label="Outlined (по умолчанию)" variant="outlined" />
-      <Select options={options} label="Filled" variant="filled" />
-      <Select options={options} label="Standard" variant="standard" />
+      <Select options={OPTIONS} label="Outlined (по умолчанию)" variant="outlined" />
+      <Select options={OPTIONS} label="Filled" variant="filled" />
+      <Select options={OPTIONS} label="Standard" variant="standard" />
     </Stack>
   ),
 };
 
-export const Sizes: Story = {
+export const Sizes: StoryObj<typeof Select> = {
   render: () => (
     <Stack spacing={2}>
-      <Select options={options} label="Small" size="small" />
-      <Select options={options} label="Medium (по умолчанию)" size="medium" />
+      <Select options={OPTIONS} label="Small" size="small" />
+      <Select options={OPTIONS} label="Medium (по умолчанию)" size="medium" />
     </Stack>
   ),
 };
 
-export const WithError: Story = {
+export const WithError: StoryObj<typeof Select> = {
   args: {
-    options,
+    options: OPTIONS,
     label: 'Ошибочный выбор',
     error: true,
     helperText: 'Обязательное поле',
   },
 };
 
-export const Disabled: Story = {
+export const Disabled: StoryObj<typeof Select> = {
   args: {
-    options,
+    options: OPTIONS,
     label: 'Отключенный выбор',
     disabled: true,
   },
 };
 
-export const FullWidth: Story = {
+export const FullWidth: StoryObj<typeof Select> = {
   args: {
-    options,
+    options: OPTIONS,
     label: 'На всю ширину',
     fullWidth: true,
   },
@@ -82,9 +76,9 @@ export const FullWidth: Story = {
   ],
 };
 
-export const WithoutLabel: Story = {
+export const WithoutLabel: StoryObj<typeof Select> = {
   args: {
-    options,
+    options: OPTIONS,
     value: 'option2',
   },
 };

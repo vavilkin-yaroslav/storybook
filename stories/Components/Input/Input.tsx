@@ -1,36 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField as MuiTextField } from '@mui/material';
+import { TextField as MuiTextField, BaseTextFieldProps as MuiTextFieldProps } from '@mui/material';
 
-interface IInputProps {
+interface IInputProps extends MuiTextFieldProps {
   name?: string;
-  placeholder?: string;
-  value?: string;
-  variant?: 'outlined' | 'filled' | 'standard';
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
-  size?: 'small' | 'medium';
-  fullWidth?: boolean;
-  error?: boolean;
-  helperText?: string;
-  disabled?: boolean;
-  type?: string;
-  className?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Input = ({
-  placeholder = '',
-  variant = 'outlined',
-  color = 'primary',
-  size = 'medium',
-  fullWidth = false,
-  error = false,
-  helperText = '',
-  className = '',
+  placeholder,
+  variant,
+  color,
+  size,
+  fullWidth,
+  error,
+  helperText,
+  className,
+  onChange,
   ...props
 }: IInputProps) => {
   return (
     <MuiTextField
+      onChange={onChange}
       placeholder={placeholder}
       variant={variant}
       color={color}

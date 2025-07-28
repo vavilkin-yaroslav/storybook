@@ -1,9 +1,10 @@
 import React from 'react';
-import { Checkbox } from './Checkbox';
 import { StoryObj, Meta } from '@storybook/react';
 import { Stack } from '@mui/material';
 
-const meta: Meta<typeof Checkbox> = {
+import { Checkbox } from './Checkbox';
+
+export default {
   title: 'Components/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
@@ -17,26 +18,20 @@ const meta: Meta<typeof Checkbox> = {
     },
     onChange: { action: 'changed' },
   },
-};
-export default meta;
+} satisfies Meta<typeof Checkbox>;
 
-type Story = StoryObj<typeof Checkbox>;
-
-// Базовый чекбокс
-export const Primary: Story = {
+export const Primary: StoryObj<typeof Checkbox> = {
   args: {
-    label: 'Базовый чекбокс',
+    label: 'Чекбокс',
     color: 'primary',
   },
 };
 
-// Чекбокс без текста
-export const WithoutLabel: Story = {
+export const WithoutLabel: StoryObj<typeof Checkbox> = {
   args: {},
 };
 
-// Разные цвета
-export const Colors: Story = {
+export const Colors: StoryObj<typeof Checkbox> = {
   render: () => (
     <Stack spacing={2}>
       <Checkbox label="Primary" color="primary" defaultChecked />
@@ -49,16 +44,14 @@ export const Colors: Story = {
   ),
 };
 
-// Неопределенное состояние
-export const Indeterminate: Story = {
+export const Indeterminate: StoryObj<typeof Checkbox> = {
   args: {
     label: 'Неопределённое состояние',
     indeterminate: true,
   },
 };
 
-// Состояния отключения
-export const DisabledStates: Story = {
+export const DisabledStates: StoryObj<typeof Checkbox> = {
   render: () => (
     <Stack spacing={2}>
       <Checkbox label="Активный" defaultChecked />
@@ -68,8 +61,7 @@ export const DisabledStates: Story = {
   ),
 };
 
-// Разные размеры
-export const Sizes: Story = {
+export const Sizes: StoryObj<typeof Checkbox> = {
   render: () => (
     <Stack spacing={2}>
       <Checkbox label="Маленький" size="small" />
@@ -79,8 +71,7 @@ export const Sizes: Story = {
   ),
 };
 
-// Группа чекбоксов
-export const CheckboxGroup: Story = {
+export const CheckboxGroup: StoryObj<typeof Checkbox> = {
   render: () => (
     <Stack spacing={2}>
       <Checkbox label="Опция 1" name="group1" />

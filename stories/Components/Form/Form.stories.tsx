@@ -3,15 +3,12 @@ import { StoryObj, Meta } from '@storybook/react';
 
 import { Form } from './Form';
 
-const meta: Meta<typeof Form> = {
+export default {
   title: 'Components/Form',
   component: Form,
   tags: ['autodocs'],
-};
-export default meta;
+} satisfies Meta<typeof Form>;
 
-type Story = StoryObj<typeof Form>;
-
-export const Default: Story = {
+export const Default: StoryObj<typeof Form> = {
   render: () => <Form />,
 };

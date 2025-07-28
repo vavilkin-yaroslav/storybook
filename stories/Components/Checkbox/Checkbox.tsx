@@ -1,25 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox as MuiCheckbox, FormControlLabel } from '@mui/material';
+import { Checkbox as MuiCheckbox, FormControlLabel, CheckboxProps as MuiCheckboxProps } from '@mui/material';
 
-interface ICheckboxProps {
+interface ICheckboxProps extends MuiCheckboxProps {
   label: string;
-  checked?: boolean;
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
-  size?: 'small' | 'medium' | 'large';
-  name?: string;
-  indeterminate: boolean,
-  className: string,
-  disabled?: boolean,
-  defaultChecked?: boolean,
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
 };
 
 export const Checkbox = ({
   label,
-  color = 'primary',
-  indeterminate = false,
-  className = '',
+  color,
+  indeterminate,
+  className,
   checked,
   onChange,
   ...props
@@ -69,10 +60,4 @@ Checkbox.propTypes = {
 
   /** Значение по умолчанию */
   defaultChecked: PropTypes.bool,
-};
-
-Checkbox.defaultProps = {
-  color: 'primary',
-  indeterminate: false,
-  className: '',
 };

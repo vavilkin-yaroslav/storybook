@@ -2,21 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
 
-interface IButtonProps extends Omit<MuiButtonProps, 'variant' | 'color'> {
+interface IButtonProps extends MuiButtonProps {
   backgroundColor?: string;
-  label: string;
-  variant?: 'contained' | 'outlined' | 'text';
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+  text: string;
 }
 
 export const Button = ({
-  backgroundColor = '',
-  size = 'medium',
-  label,
-  disabled = false,
-  fullWidth = false,
+  backgroundColor,
+  size,
+  text,
+  disabled,
+  fullWidth,
   variant,
-  color = 'primary',
+  color,
   ...props
 }: IButtonProps) => {
   return (
@@ -29,7 +27,7 @@ export const Button = ({
       style={{ backgroundColor }}
       {...props}
     >
-      {label}
+      {text}
     </MuiButton>
   );
 };
@@ -61,9 +59,5 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  size: 'medium',
-  disabled: false,
-  fullWidth: false,
   variant: 'contained',
-  color: 'primary',
 };
