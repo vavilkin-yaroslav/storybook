@@ -4,7 +4,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Form } from './Form';
 
 export default {
-  title: 'Components/Form',
+  title: 'Complex/Form',
   component: Form,
   tags: ['autodocs'],
   parameters: {
