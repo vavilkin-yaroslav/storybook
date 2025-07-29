@@ -20,10 +20,7 @@ export default preview;
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {
-      // Название темы и сама тема
       light: appTheme,
-      // Можно добавить темную тему, если нужно
-      // dark: darkTheme,
     },
     defaultTheme: 'light',
     Provider: ThemeProvider,

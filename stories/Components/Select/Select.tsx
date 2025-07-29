@@ -95,3 +95,15 @@ Select.propTypes = {
   /** Обработчик изменения значения */
   onChange: PropTypes.func,
 };
+
+Select.defaultProps = {
+  options: [],
+  label: 'Выбрать',
+  variant: 'outlined',
+  size: 'medium',
+  fullWidth: false,
+  error: false,
+  disabled: false,
+  placeholder: '',
+  color: 'primary',
+};

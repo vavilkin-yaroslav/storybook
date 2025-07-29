@@ -11,13 +11,6 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'error', 'warning', 'info', 'success'],
-    },
-    onChange: { action: 'changed' },
-  },
 } satisfies Meta<typeof Checkbox>;
 
 export const Primary: StoryObj<typeof Checkbox> = {

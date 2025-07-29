@@ -11,17 +11,11 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    onChange: { action: 'changed' },
-  },
 } satisfies Meta<typeof Select>;
-
-
 
 export const Basic: StoryObj<typeof Select> = {
   args: {
     options: OPTIONS,
-    label: 'Выберите вариант',
   },
 };
 
