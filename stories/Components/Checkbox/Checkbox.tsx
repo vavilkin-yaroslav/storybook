@@ -1,10 +1,54 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Checkbox as MuiCheckbox, FormControlLabel, CheckboxProps as MuiCheckboxProps } from '@mui/material';
+
+import {
+  Checkbox as MuiCheckbox,
+  CheckboxProps as MuiCheckboxProps,
+  FormControlLabel,
+} from '@mui/material';
 
 interface ICheckboxProps extends MuiCheckboxProps {
-  label: string;
-};
+  /**
+   * Текст рядом с чекбоксом
+   * @default undefined
+   */
+  label?: string;
+
+  /**
+   * Цвет чекбокса
+   * @default 'primary'
+   */
+  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+
+  /**
+   * Состояние неопределённости (indeterminate)
+   * @default false
+   */
+  indeterminate?: boolean;
+
+  /**
+   * Дополнительный класс для стилизации
+   * @default undefined
+   */
+  className?: string;
+
+  /**
+   * Размер чекбокса
+   * @default 'medium'
+   */
+  size?: 'small' | 'medium' | 'large';
+
+  /**
+   * Отключенное состояние
+   * @default false
+   */
+  disabled?: boolean;
+
+  /**
+   * Значение по умолчанию (неконтролируемый компонент)
+   * @default false
+   */
+  defaultChecked?: boolean;
+}
 
 export const Checkbox = ({
   label,
@@ -31,33 +75,4 @@ export const Checkbox = ({
   ) : (
     checkboxElement
   );
-};
-
-Checkbox.propTypes = {
-  /** Текст рядом с чекбоксом */
-  label: PropTypes.string,
-
-  /** Цвет чекбокса */
-  color: PropTypes.oneOf(['primary', 'secondary', 'error', 'warning', 'info', 'success']),
-
-  /** Состояние неопределённости (indeterminate) */
-  indeterminate: PropTypes.bool,
-
-  /** Дополнительный класс для стилизации */
-  className: PropTypes.string,
-
-  /** Обработчик изменения состояния */
-  onChange: PropTypes.func,
-
-  /** Размер чекбокса */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-
-  /** Отключенное состояние */
-  disabled: PropTypes.bool,
-
-  /** Отмеченное состояние */
-  checked: PropTypes.bool,
-
-  /** Значение по умолчанию */
-  defaultChecked: PropTypes.bool,
 };

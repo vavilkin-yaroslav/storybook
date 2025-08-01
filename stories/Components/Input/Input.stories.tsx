@@ -1,7 +1,9 @@
 import React from 'react';
-import { Input } from './Input';
+
 import { StoryObj, Meta } from '@storybook/react';
 import { Stack } from '@mui/material';
+
+import { Input } from './Input';
 
 export default {
   title: 'Components/Input',

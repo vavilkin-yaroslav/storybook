@@ -1,7 +1,7 @@
 export interface IFormData {
   name: string;
   email: string;
-  country: unknown;
+  country: string;
   agreeTerms: boolean;
 }
 

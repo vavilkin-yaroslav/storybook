@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Paper, SelectChangeEvent } from '@mui/material';
+import { Box, Typography, Paper } from '@mui/material';
 
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
@@ -33,9 +33,10 @@ export const Form = () => {
 
   const handleSelectChange = (e: TSelectEvent) => {
     const { value } = e.target;
+
     setFormData(prev => ({
       ...prev,
-      country: value
+      country: String(value)
     }));
   };
 

@@ -1,8 +1,11 @@
 import React from 'react';
-import { Select } from './Select';
+
 import { StoryObj, Meta } from '@storybook/react';
 import { Stack } from '@mui/material';
+
 import { OPTIONS } from '../../mocks/Select';
+
+import { Select } from './Select';
 
 export default {
   title: 'Components/Select',

@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 
-import { appTheme } from '../stories/Theme/theme';
+import { appTheme } from '../stories/ThemeProvider/theme';
 
 const preview: Preview = {
   parameters: {

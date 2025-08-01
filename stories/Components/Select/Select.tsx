@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import {
   MenuItem,
   FormControl,
@@ -10,8 +10,71 @@ import {
 } from '@mui/material';
 
 interface ISelectProps extends MuiBaseSelectProps {
-  options: Array<{ value: string | number; label: string }>;
+  /**
+   * Варианты для выбора
+   * @default []
+   */
+  options: { value: any, label: any }[];
+
+  /**
+   * Сообщение подсказки или ошибки
+   * @default undefined
+   */
   helperText?: string;
+
+  /**
+   * Значение выбранного элемента
+   * @default ''
+   */
+  value?: string | number;
+
+  /**
+   * Текст подсказки (label)
+   * @default 'Выбрать'
+   */
+  label?: string;
+
+  /**
+   * Вариант стиля
+   * @default 'outlined'
+   */
+  variant?: 'outlined' | 'filled' | 'standard';
+
+  /**
+   * Размер
+   * @default 'medium'
+   */
+  size?: 'small' | 'medium';
+
+  /**
+   * Ширина на всю родительскую ширину
+   * @default false
+   */
+  fullWidth?: boolean;
+
+  /**
+   * Ошибка валидации
+   * @default false
+   */
+  error?: boolean;
+
+  /**
+   * Отключенное состояние
+   * @default false
+   */
+  disabled?: boolean;
+
+  /**
+   * Дополнительный класс
+   * @default ''
+   */
+  className?: string;
+
+  /**
+   * Цветовая схема
+   * @default 'primary'
+   */
+  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
 }
 
 export const Select = ({
@@ -45,8 +108,8 @@ export const Select = ({
         label={label}
         {...props}
       >
-        {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+        {options.map((option, index) => (
+          <MenuItem key={crypto.randomUUID()} value={option.value}>
             {option.label}
           </MenuItem>
         ))}
@@ -54,56 +117,4 @@ export const Select = ({
       {helperText && <FormHelperText>{helperText}</FormHelperText>}
     </FormControl >
   );
-};
-
-Select.propTypes = {
-  /** Значение выбранного элемента */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /** Варианты для выбора */
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-
-  /** Текст подсказки */
-  label: PropTypes.string,
-
-  /** Вариант стиля */
-  variant: PropTypes.oneOf(['outlined', 'filled', 'standard']),
-
-  /** Размер */
-  size: PropTypes.oneOf(['small', 'medium']),
-
-  /** Ширина на всю родительскую ширину */
-  fullWidth: PropTypes.bool,
-
-  /** Ошибка валидации */
-  error: PropTypes.bool,
-
-  /** Сообщение об ошибке */
-  helperText: PropTypes.string,
-
-  /** Отключенное состояние */
-  disabled: PropTypes.bool,
-
-  /** Дополнительный класс */
-  className: PropTypes.string,
-
-  /** Обработчик изменения значения */
-  onChange: PropTypes.func,
-};
-
-Select.defaultProps = {
-  options: [],
-  label: 'Выбрать',
-  variant: 'outlined',
-  size: 'medium',
-  fullWidth: false,
-  error: false,
-  disabled: false,
-  placeholder: '',
-  color: 'primary',
 };

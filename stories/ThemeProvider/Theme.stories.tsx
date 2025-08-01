@@ -1,8 +1,16 @@
 import React from 'react';
-import { ThemeProvider } from './ThemeProvider';
-import { appTheme } from '../theme/theme';
-import { Typography, Box, Paper, Button, Select, MenuItem, TextField } from '@mui/material';
 import { StoryObj, Meta } from '@storybook/react';
+import {
+  Typography, 
+  Box, 
+  Paper, 
+  Button, 
+  Select, 
+  MenuItem, 
+  TextField
+} from '@mui/material';
+
+import { ThemeProvider } from './ThemeProvider';
 
 export default {
   title: 'Theme/Theme',
