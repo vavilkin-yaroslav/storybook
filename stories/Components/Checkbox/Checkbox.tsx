@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Checkbox as MuiCheckbox, FormControlLabel } from '@mui/material';
 
 import { ICheckboxProps } from './interfaces';

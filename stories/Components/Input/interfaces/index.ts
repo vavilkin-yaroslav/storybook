@@ -1,4 +1,3 @@
-
 import { BaseTextFieldProps as MuiTextFieldProps } from '@mui/material';
 
 export interface IInputProps extends MuiTextFieldProps {
